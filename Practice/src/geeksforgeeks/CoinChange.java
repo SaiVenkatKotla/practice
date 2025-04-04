@@ -14,13 +14,13 @@ public class CoinChange {
     public int count(int[] coins, int sum) {
         int[][] arr = new int[coins.length + 1][sum + 1];
         Arrays.fill(arr[0], 0);
-        for(int i =0 ;i<coins.length+1;i++){
+        for (int i = 0; i < coins.length + 1; i++) {
             arr[i][0] = 1;
         }
         for (int i = 1; i < coins.length + 1; i++) {
             for (int j = 1; j < sum + 1; j++) {
                 if (j >= i)
-                    arr[i][j] =  Math.max(1+arr[i - 1][j], arr[i][j - 1]);
+                    arr[i][j] = Math.max(1 + arr[i - 1][j], arr[i][j - 1]);
                 else
                     arr[i][j] = arr[i - 1][j];
             }

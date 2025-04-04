@@ -21,14 +21,20 @@ class Employee {
 
 public class CollectorsExamples {
     public static void main(String[] args) {
-        List<Employee> employees = List.of(
+        List<Employee> employees = new ArrayList<>(List.of(
                 new Employee("Alice", "HR", 5000),
                 new Employee("Bob", "IT", 7000),
                 new Employee("Charlie", "IT", 6000),
                 new Employee("David", "Finance", 8000),
                 new Employee("Eve", "Finance", 7500)
-        );
+        ));
+        employees.sort((e1, e2) -> e2.name.compareTo(e1.name));
+        employees.stream().forEach(System.out::println);
 
+        TreeSet<Employee> employeesSet = new TreeSet<>((e1, e2) -> e1.department.compareTo(e2.department));
+        employeesSet.addAll(employees);
+        System.out.println("TreeSet");
+        employeesSet.forEach(System.out::println);
         // 1. Collecting to List
         List<String> employeeNames = employees.stream()
                 .map(e -> e.name)
