@@ -13,5 +13,17 @@ public class Thread1 {
             d.exit();
         });
         t2.start();
+
+
+        Thread t3 = new Thread(() -> {
+            System.out.println("This is a thread");
+        });
+        t3.start();
+        /*try {
+            t3.join(); // Wait for t3 to complete
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
     }
 }

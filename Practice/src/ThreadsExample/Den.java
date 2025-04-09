@@ -13,7 +13,7 @@ public class Den {
 
     public synchronized void enter() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
             System.out.println("Enter something");
             System.out.println(sc.next());
         } catch (Exception e) {
@@ -23,7 +23,7 @@ public class Den {
 
     public synchronized void exit() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
             System.out.println("Exit something");
             System.out.println(sc.next());
         } catch (Exception e) {
