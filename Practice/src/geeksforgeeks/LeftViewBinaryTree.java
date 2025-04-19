@@ -6,11 +6,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class TreeNode {
-    int data;
+    int val;
     TreeNode left, right;
 
     public TreeNode(int val) {
-        this.data = val;
+        this.val = val;
         this.left = null;
         this.right = null;
     }
@@ -35,7 +35,7 @@ public class LeftViewBinaryTree {
                 TreeNode currentNode = queue.poll();
 
                 if (i == 0) {
-                    result.add(currentNode.data);
+                    result.add(currentNode.val);
                 }
 
                 // Add left and right children to the queue

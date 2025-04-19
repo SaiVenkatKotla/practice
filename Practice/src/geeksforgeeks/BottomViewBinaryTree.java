@@ -16,7 +16,7 @@ public class BottomViewBinaryTree {
             TreeNode current = currentPair.getKey();
             int hd = currentPair.getValue();
 
-            map.put(hd, current.data);
+            map.put(hd, current.val);
 
             if (current.left != null) {
                 queue.add(new Pair<>(current.left, hd - 1));
