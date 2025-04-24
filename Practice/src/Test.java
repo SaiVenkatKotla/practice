@@ -1,20 +1,43 @@
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
-import LeetCode.KthLargest;
-import com.google.common.collect.ImmutableList;
 
 public class Test {
+
     public static void main(String[] args) {
-        KthLargest list = new KthLargest(4 , new int[]{7, 7, 7, 7, 8, 3});
-        System.out.println(list.add(2));
-        System.out.println(list.add(10));
-        System.out.println(list.add(9));
-        System.out.println(list.add(9));
-        //System.out.println(list.add(3));
+       String s = "cabwefgewcwaefgcf";
+       String t ="cae";
+       int left = 0 , right;
+       String result = s + t;
+       char[] targetChars = t.toCharArray();
+       Arrays.sort(targetChars);
+       for(right = t.length(); right<= s.length(); right++){
+           char[] sourcedChar = s.substring(left, right).toCharArray();
+           Arrays.sort(sourcedChar);
+           if(findMatching(sourcedChar, targetChars)){
+               if( result.length() > right - left){
+               result = s.substring(left, right);
+               }
+               left++;
+               right = left + t.length() -1;
+           }
+       }
+        System.out.println(result.equals(s + t) ? "" : result);
+
+    }
+
+    private static boolean findMatching(char[] sourcedChar , char[] targetChars){
+        int[] sourceFreq = new int[58];
+
+        for(char c : sourcedChar){
+            sourceFreq[c-'A']++;
+        }
+
+        for(char c: targetChars){
+            sourceFreq[c-'A']--;
+            if(sourceFreq[c-'A'] < 0)
+                return false;
+        }
+
+        return true;
     }
 
 
