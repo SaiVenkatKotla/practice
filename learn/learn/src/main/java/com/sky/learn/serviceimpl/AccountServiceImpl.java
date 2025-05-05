@@ -20,11 +20,15 @@ import static com.sky.learn.constants.LearnConstants.ALL;
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    @Autowired
-    private  AccountsRepository accountsRepository;
+
+    private final AccountsRepository accountsRepository;
 
 
     private static final ModelMapper mapper = new ModelMapper();
+
+    public AccountServiceImpl(AccountsRepository accountsRepository) {
+        this.accountsRepository = accountsRepository;
+    }
 
     @Override
     public AccountsDTO findAccountById(String id) {

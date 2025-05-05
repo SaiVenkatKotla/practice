@@ -20,4 +20,10 @@ public class Accounts {
     private int limit;
     private List<String> products;
 
+    public Accounts(ObjectId objectId, int i, int i1, List<String> of) {
+        this._id = objectId;
+        this.accountId = i;
+        this.limit = i1;
+        this.products = of;
+    }
 }
