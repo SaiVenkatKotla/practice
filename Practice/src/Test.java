@@ -1,44 +1,14 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Test {
 
     public static void main(String[] args) {
-       String s = "cabwefgewcwaefgcf";
-       String t ="cae";
-       int left = 0 , right;
-       String result = s + t;
-       char[] targetChars = t.toCharArray();
-       Arrays.sort(targetChars);
-       for(right = t.length(); right<= s.length(); right++){
-           char[] sourcedChar = s.substring(left, right).toCharArray();
-           Arrays.sort(sourcedChar);
-           if(findMatching(sourcedChar, targetChars)){
-               if( result.length() > right - left){
-               result = s.substring(left, right);
-               }
-               left++;
-               right = left + t.length() -1;
-           }
-       }
-        System.out.println(result.equals(s + t) ? "" : result);
-
+        System.out.println(System.currentTimeMillis());
+        List<Integer> even = IntStream.range(0,1000000).filter(n -> n%2 == 0).boxed().toList();
+        System.out.println(System.currentTimeMillis());
     }
-
-    private static boolean findMatching(char[] sourcedChar , char[] targetChars){
-        int[] sourceFreq = new int[58];
-
-        for(char c : sourcedChar){
-            sourceFreq[c-'A']++;
-        }
-
-        for(char c: targetChars){
-            sourceFreq[c-'A']--;
-            if(sourceFreq[c-'A'] < 0)
-                return false;
-        }
-
-        return true;
-    }
-
 
 }

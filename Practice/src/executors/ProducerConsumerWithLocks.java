@@ -72,7 +72,7 @@ public class ProducerConsumerWithLocks {
             }
         });
 
-        producerThread.start();
         consumerThread.start();
+        producerThread.start();
     }
 }
