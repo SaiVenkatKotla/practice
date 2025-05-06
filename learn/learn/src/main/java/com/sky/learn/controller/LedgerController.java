@@ -20,7 +20,7 @@ public class LedgerController {
     }
 
     @GetMapping("/ledger/account/{accountId}")
-    public ResponseEntity<Ledger> getLedgerById(@PathVariable Integer accountId) {
+    public ResponseEntity<Ledger> getLedgerByAccountId(@PathVariable Integer accountId) {
         return ResponseEntity.ok(ledgerService.findByAccountId(accountId));
     }
 

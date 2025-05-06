@@ -29,7 +29,6 @@ public class Customer {
     private List<Integer> accounts;
     @Field("tier_and_details")
     private HashMap<String, TierAndDetails> tierAndDetails;
-    private List<TierAndDetails> tier;
 
     public Customer(String username, String name, String email) {
         this.username = username;

@@ -14,10 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -89,6 +86,8 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerResponseDTO findTierAndDetails(QueryDTO queryDTO) {
         CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO();
         List<Customer> customers = customersRepository.findAll();
+        List<TierAndDetails> tierAndDetails = customers.stream().flatMap(customer -> customer.getTierAndDetails().values().stream()).toList();
+        tierAndDetails.forEach(System.out::println);
         return customerResponseDTO;
     }
 
