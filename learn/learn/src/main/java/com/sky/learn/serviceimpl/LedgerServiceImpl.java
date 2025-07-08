@@ -40,7 +40,7 @@ public class LedgerServiceImpl implements LedgerService {
     public LedgerResponseDTO getSymbolDetails(LedgerQueryDTO queryDTO) {
         LedgerResponseDTO responseDTO = new LedgerResponseDTO();
         List<Ledger> ledgerList = ledgerRepository.findAll();
-        Map<String, HashMap<String, Integer>> transactionCodeVsQuantity = ledgerList.stream().flatMap(ledger -> ledger.getTransactions().stream())
+        Map<String, HashMap<String, Integer>> transactionCodeVsQuantity = ledgerList.stream().parallel().flatMap(ledger -> ledger.getTransactions().stream())
                 .filter(transactions -> queryDTO.getSymbols().contains(transactions.getSymbol()))
                 .filter(transactions -> queryDTO.getTransactionCode().equals(BOTH) || queryDTO.getTransactionCode().equals(transactions.getTransactionCode()))
                 .collect(Collectors.groupingBy(
