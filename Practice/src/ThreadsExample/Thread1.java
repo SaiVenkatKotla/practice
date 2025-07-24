@@ -25,5 +25,10 @@ public class Thread1 {
             e.printStackTrace();
         }*/
 
+
+        /*Runnable runn = new Thread( () -> {
+
+        })*/
+
     }
 }
