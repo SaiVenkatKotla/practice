@@ -9,9 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 @Entity
 @Table( name = "dept_manager")
 public class DeptManager {

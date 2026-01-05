@@ -12,7 +12,7 @@ public class FirstNonRepeatingCharacter {
         String s = "abcddedffgshi";
         Optional<Character> firstChar = s.chars()
                 .mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new,Collectors.counting()))
+                .collect(Collectors.groupingBy(character -> character, LinkedHashMap::new,Collectors.counting()))
                 .entrySet().stream()
                 .filter(entry-> entry.getValue() == 1)
                 .map(Map.Entry::getKey)
